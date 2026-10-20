@@ -1,0 +1,18 @@
+<nav class="admin-navbar" aria-label="Admin navigation" *ngIf="userRoles.includes('admin')">
+  <div class="brand">Admin options</div>
+
+  <div class="nav-links">
+    <a href="#" class="active">Overview</a>
+    <a href="#">Users</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+  </div>
+
+  <div class="nav-actions">
+    <span class="user-pill" *ngIf="!isLoading && !errorMessage">
+      {{ userRoles.length ? userRoles.join(', ') : 'No roles' }}
+    </span>
+    <span class="user-pill muted" *ngIf="isLoading">Loading roles...</span>
+    <span class="user-pill error" *ngIf="errorMessage">{{ errorMessage }}</span>
+  </div>
+</nav>
